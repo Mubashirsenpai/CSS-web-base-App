@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faculty - Computer Science Department</title>
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .faculty-section {
+            padding: 6rem 5% 4rem;
+        }
+        
+        .faculty-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .faculty-filters {
+            margin: 2rem 0;
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .filter-btn {
+            padding: 0.5rem 1rem;
+            border: none;
+            background: #f0f0f0;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .filter-btn.active {
+            background: #1a237e;
+            color: white;
+        }
+        
+        .faculty-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .faculty-card {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+        
+        .faculty-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .faculty-image {
+            width: 100%;
+            height: 300px;
+            background: #f5f5f5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        
+        .faculty-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .faculty-info {
+            padding: 1.5rem;
+        }
+        
+        .faculty-name {
+            color: #1a237e;
+            margin-bottom: 0.5rem;
+        }
+        
+        .faculty-title {
+            color: #666;
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+        
+        .faculty-contact {
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid #eee;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+            color: #666;
+        }
+        
+        .contact-item i {
+            color: #1a237e;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <h1>CS Department</h1>
+                <p>Faculty of Physical Sciences</p>
+            </div>
+            <ul class="nav-links">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="courses.html">Courses</a></li>
+                <li><a href="faculty.html" class="active">Faculty</a></li>
+                <li><a href="announcements.html">Announcements</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="burger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="faculty-section">
+            <div class="faculty-content">
+                <h1>Our Faculty</h1>
+                <p>Meet our distinguished faculty members who are dedicated to excellence in teaching and research.</p>
+                
+                <div class="faculty-filters">
+                    <button class="filter-btn active">All Faculty</button>
+                    <button class="filter-btn">Professors</button>
+                    <button class="filter-btn">Associate Professors</button>
+                    <button class="filter-btn">Assistant Professors</button>
+                    <button class="filter-btn">Lecturer</button>
+                </div>
+
+                <div class="faculty-grid">
+                    <!-- Faculty Member 1 -->
+                    <div class="faculty-card">
+                        <div class="faculty-image">
+                            <img src="../images/faculty/prof-ibrahim-yakubu-seini.jpg" alt="Prof. Seini">
+                        </div>
+                        <div class="faculty-info">
+                            <h2 class="faculty-name">Prof. Ibrahim Yakubu Seini</h2>
+                            <p class="faculty-title">Professor & Dean of Faculty of Physical Sciences</p>
+                            <p>Specialization: Artificial Intelligence and Machine Learning</p>
+                            <div class="faculty-contact">
+                                <div class="contact-item">
+                                    <i class="fas fa-envelope"></i>
+                                    <span>yakubuseini@uds.edu.gh</span>
+                                </div>
+                                <div class="contact-item">
+                                    <i class="fas fa-phone"></i>
+                                    <span>+233 </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Faculty Member 2 -->
+                    <div class="faculty-card">
+                        <div class="faculty-image">
+                            <img src="../images/faculty/aalhassan-52959.jpg" alt="Prof. Barik">
+                        </div>
+                        <div class="faculty-info">
+                            <h2 class="faculty-name">Prof. Abdul Barik Alhassan</h2>
+                            <p class="faculty-title">Professor & Head of Department of Computer SCience</p>
+                            <p>Specialization: Database Systems and Data Mining</p>
+                            <div class="faculty-contact">
+                                <div class="contact-item">
+                                    <i class="fas fa-envelope"></i>
+                                    <span>abdulbarikalhassan@uds.edu.gh</span>
+                                </div>
+                                <div class="contact-item">
+                                    <i class="fas fa-phone"></i>
+                                    <span>+233(0) 37 209 9482</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Faculty Member 3 -->
+                    <div class="faculty-card">
+                        <div class="faculty-image">
+                            <img src="../images/faculty/Mr Wakil.jpg" alt="Dr. Wakil">
+                        </div>
+                        <div class="faculty-info">
+                            <h2 class="faculty-name">Dr. Abdul Wakil Yakubu Iddrisu</h2>
+                            <p class="faculty-title">Lecturer</p>
+                            <p>Specialization: Computer Networks and Security</p>
+                            <div class="faculty-contact">
+                                <div class="contact-item">
+                                    <i class="fas fa-envelope"></i>
+                                    <span>iddrisuwakil@uds.edu.gh</span>
+                                </div>
+                                <div class="contact-item">
+                                    <i class="fas fa-phone"></i>
+                                    <span>+233 24 813 7800</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p>Computer Science Department</p>
+                <p>Faculty of Physical Sciences</p>
+                <p>University for Development Studies</p>
+                <p>Email: cssudsnyc@gmail.com</p>
+                <p>Phone: +233(0) 37 209 9482</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="courses.html">Courses</a></li>
+                    <li><a href="faculty.html">Faculty</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <div class="social-links">
+                    <a href="https://youtube.com/@CSS-UDS"><i class="fab fa-youtube"></i></a>
+                    <a href="https://x.com/@_CssUds"><i class="fab fa-twitter"></i></a>
+                    <a href="https://t.me/css_uds"><i class="fab fa-telegram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Computer Science Department, UDS. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="../scripts/main.js"></script>
+    <script>
+        // Faculty filtering functionality
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const facultyCards = document.querySelectorAll('.faculty-card');
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                // Add active class to clicked button
+                button.classList.add('active');
+                
+                const category = button.textContent.trim();
+                
+                facultyCards.forEach(card => {
+                    const title = card.querySelector('.faculty-title').textContent.trim();
+                    if (category === 'All Faculty') {
+                        card.style.display = '';
+                    } else {
+                        card.style.display = title.includes(category) ? '' : 'none';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html> 

@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Computer Science Department - UDS</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <img src="Image/css logo.png" alt="CS Department Logo">
+                <div class="logo-text">
+                    <h1>CS Department</h1>
+                    <p>Faculty of Physical Sciences</p>
+                </div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="pages/about.html">About</a></li>
+                <li><a href="pages/courses.html">Courses</a></li>
+                <li><a href="pages/faculty.html">Faculty</a></li>
+                <li><a href="pages/announcements.html">Announcements</a></li>
+                <li><a href="pages/contact.html">Contact</a></li>
+            </ul>
+            <div class="burger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Welcome to Computer Science Department</h1>
+                <p>Coded for Action</p>
+                <div class="hero-buttons">
+                    <a href="pages/about.html" class="cta-button">Learn More</a>
+                    <a href="pages/timetable.html" class="cta-button secondary" id="timetableBtn">Download Timetable</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="features">
+            <div class="feature-card">
+                <i class="fas fa-graduation-cap"></i>
+                <h3>Academic Excellence</h3>
+                <p>Comprehensive curriculum designed to prepare students for the digital age</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-laptop-code"></i>
+                <h3>Modern Facilities</h3>
+                <p>State-of-the-art laboratories and computing resources</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-users"></i>
+                <h3>Expert Faculty</h3>
+                <p>Learn from experienced professionals and researchers</p>
+            </div>
+        </section>
+
+        <section class="announcements">
+            <h2>Latest Announcements</h2>
+            <div class="announcement-container">
+                <div class="announcement-card">
+                    <h3>Registration for New Semester</h3>
+                    <p>Registration for the upcoming semester begins on 26th May 2025</p>
+                    <!-- <span class="date"></span> -->
+                    <div class="announcement-actions">
+                        <a href="#" class="action-btn">Download Form</a>
+                    </div>
+                </div>
+                <div class="announcement-card">
+                    <h3>Department Seminar</h3>
+                    <p>Join us for our weekly seminar on "Tech Talk</p>
+                    <!-- <span class="date"></span> -->
+                    <div class="announcement-actions">
+                        <a href="#" class="action-btn">Register</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="events">
+            <h2>Upcoming Events</h2>
+            <div class="event-container">
+                <div class="event-card">
+                    <div class="event-date">
+                        <span class="day">  Saturday</span>
+                        <span class="month">May</span>
+                    </div>
+                    <div class="event-details">
+                        <h3>Revolution of Technology Today</h3>
+                        <p>How far has Technlogy become, and how long can it go...</p>
+                        <div class="event-info">
+                            <span><i class="fas fa-clock"></i> 9:00am</span>
+                            <span><i class="fas fa-map-marker-alt"></i> Silver Jubilee Law Auditorioum</span>
+                        </div>
+                        <a href="#" class="event-btn">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Registration Modal -->
+    <div class="modal" id="registrationModal">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <h2>Registration Form</h2>
+            <form id="registrationForm">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="studentId">Student ID</label>
+                    <input type="text" id="studentId" name="studentId" required>
+                </div>
+                <div class="form-group">
+                    <label for="level">Level</label>
+                    <select id="level" name="level" required>
+                        <option value="">Select Level</option>
+                        <option value="100">Level 100</option>
+                        <option value="200">Level 200</option>
+                        <option value="300">Level 300</option>
+                        <option value="400">Level 400</option>
+                    </select>
+                </div>
+                <button type="submit" class="form-submit">Submit Registration</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Event Details Modal -->
+    <div class="modal" id="eventModal">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <h2>Event Details</h2>
+            <div id="eventDetails">
+                <!-- Event details will be populated dynamically -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Research Grant Modal -->
+    <div class="modal" id="grantModal">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <h2>Research Grant Application</h2>
+            <form id="grantForm">
+                <div class="form-group">
+                    <label for="applicantName">Full Name</label>
+                    <input type="text" id="applicantName" name="applicantName" required>
+                </div>
+                <div class="form-group">
+                    <label for="applicantEmail">Email</label>
+                    <input type="email" id="applicantEmail" name="applicantEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="projectTitle">Project Title</label>
+                    <input type="text" id="projectTitle" name="projectTitle" required>
+                </div>
+                <div class="form-group">
+                    <label for="projectArea">Research Area</label>
+                    <select id="projectArea" name="projectArea" required>
+                        <option value="">Select Area</option>
+                        <option value="ai">Artificial Intelligence and Machine Learning</option>
+                        <option value="security">Cybersecurity and Network Systems</option>
+                        <option value="software">Software Engineering and Development</option>
+                        <option value="data">Data Science and Analytics</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="projectDescription">Project Description</label>
+                    <textarea id="projectDescription" name="projectDescription" required></textarea>
+                </div>
+                <button type="submit" class="form-submit">Submit Application</button>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p>Computer Science Department</p>
+                <p>Faculty of Physical Sciences</p>
+                <p>University for Development Studies</p>
+                <p>Email: cssudsnyc@gmail.com</p>
+                <p>Phone: +233(0) 37 209 9482</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="pages/about.html">About Us</a></li>
+                    <li><a href="pages/courses.html">Courses</a></li>
+                    <li><a href="pages/faculty.html">Faculty</a></li>
+                    <li><a href="pages/contact.html">Contact</a></li>
+                    <li><a href="pages/timetable.html">Timetable</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <div class="social-links">
+                    <a href="https://youtube.com/@CSS-UDS"><i class="fab fa-youtube"></i></a>
+                    <a href="https://x.com/@_CssUds"><i class="fab fa-twitter"></i></a>
+                    <a href="https://t.me/css_uds"><i class="fab fa-telegram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Computer Science Department, UDS. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="scripts/main.js"></script>
+    <script>
+        // Modal functionality
+        const modals = document.querySelectorAll('.modal');
+        const modalCloseButtons = document.querySelectorAll('.modal-close');
+        const registrationButtons = document.querySelectorAll('.action-btn');
+        const eventButtons = document.querySelectorAll('.event-btn');
+        const grantButtons = document.querySelectorAll('.action-btn');
+
+        // Close modal when clicking the close button or outside the modal
+        modalCloseButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                button.closest('.modal').classList.remove('active');
+            });
+        });
+
+        modals.forEach(modal => {
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    modal.classList.remove('active');
+                }
+            });
+        });
+
+        // Registration form handling
+        registrationButtons.forEach(button => {
+            if (button.textContent.includes('Register')) {
+                button.addEventListener('click', () => {
+                    document.getElementById('registrationModal').classList.add('active');
+                });
+            }
+        });
+
+        // Event details handling
+        eventButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const eventCard = button.closest('.event-card');
+                const eventTitle = eventCard.querySelector('h3').textContent;
+                const eventDescription = eventCard.querySelector('p').textContent;
+                const eventInfo = eventCard.querySelector('.event-info').innerHTML;
+                
+                const eventDetails = document.getElementById('eventDetails');
+                eventDetails.innerHTML = `
+                    <h3>${eventTitle}</h3>
+                    <p>${eventDescription}</p>
+                    <div class="event-info">${eventInfo}</div>
+                    <div class="form-group">
+                        <button class="form-submit">Register for Event</button>
+                    </div>
+                `;
+                
+                document.getElementById('eventModal').classList.add('active');
+            });
+        });
+
+        // Grant application handling
+        grantButtons.forEach(button => {
+            if (button.textContent.includes('Apply Now')) {
+                button.addEventListener('click', () => {
+                    document.getElementById('grantModal').classList.add('active');
+                });
+            }
+        });
+
+        // Form submissions
+        document.getElementById('registrationForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            // Add your form submission logic here
+            alert('Registration submitted successfully!');
+            document.getElementById('registrationModal').classList.remove('active');
+        });
+
+        document.getElementById('grantForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            // Add your form submission logic here
+            alert('Grant application submitted successfully!');
+            document.getElementById('grantModal').classList.remove('active');
+        });
+
+        // Timetable download
+        const timetableBtn = document.getElementById('timetableBtn');
+        if (timetableBtn) {
+            timetableBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                window.location.href = 'pages/timetable.html';
+            });
+        }
+    </script>
+</body>
+</html> 

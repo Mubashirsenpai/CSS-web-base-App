@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Courses - Computer Science Department</title>
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .courses-section {
+            padding: 6rem 5% 4rem;
+        }
+        
+        .courses-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .course-filters {
+            margin: 2rem 0;
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .filter-btn {
+            padding: 0.5rem 1rem;
+            border: none;
+            background: #f0f0f0;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .filter-btn.active {
+            background: #1a237e;
+            color: white;
+        }
+
+        .course-category {
+            display: none;
+        }
+
+        .course-category.active {
+            display: grid;
+        }
+        
+        .course-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .course-card {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+        
+        .course-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .course-header {
+            padding: 1.5rem;
+            background: #1a237e;
+            color: white;
+        }
+        
+        .course-body {
+            padding: 1.5rem;
+        }
+        
+        .course-footer {
+            padding: 1rem 1.5rem;
+            background: #f5f5f5;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .course-credits {
+            font-weight: bold;
+            color: #1a237e;
+        }
+        
+        .course-level {
+            padding: 0.25rem 0.5rem;
+            background: #6961d4;
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <h1>CS Department</h1>
+                <p>Faculty of Physical Sciences</p>
+            </div>
+            <ul class="nav-links">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="courses.html" class="active">Courses</a></li>
+                <li><a href="faculty.html">Faculty</a></li>
+                <li><a href="announcements.html">Announcements</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="burger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="courses-section">
+            <div class="courses-content">
+                <h1>Our Courses</h1>
+                <p>Explore our comprehensive range of computer science courses designed to prepare you for a successful career in technology.</p>
+                
+                <div class="course-filters">
+                    <button class="filter-btn active" data-category="undergraduate">Undergraduate Courses</button>
+                    <button class="filter-btn" data-category="elective">Elective Courses</button>
+                    <button class="filter-btn" data-category="postgraduate">Postgraduate Courses</button>
+                    <button class="filter-btn" data-category="research">Research Courses</button>
+                </div>
+
+                <!-- Undergraduate Courses -->
+                <div class="course-category active" id="undergraduate">
+                    <div class="course-grid">
+                        <div class="course-card">
+                            <div class="course-header">
+                                <h3>Introduction to Programming</h3>
+                                <span class="course-level">Level 100</span>
+                            </div>
+                            <div class="course-body">
+                                <p>Fundamental concepts of programming, problem-solving, and algorithm development using Python.</p>
+                            </div>
+                            <div class="course-footer">
+                                <span class="course-credits">3 Credits</span>
+                                <span class="course-code">CS101</span>
+                            </div>
+                        </div>
+
+                        <div class="course-card">
+                            <div class="course-header">
+                                <h3>Data Structures and Algorithms</h3>
+                                <span class="course-level">Level 200</span>
+                            </div>
+                            <div class="course-body">
+                                <p>Study of fundamental data structures and algorithms, their implementation and analysis.</p>
+                            </div>
+                            <div class="course-footer">
+                                <span class="course-credits">4 Credits</span>
+                                <span class="course-code">CS201</span>
+                            </div>
+                        </div>
+
+                        <div class="course-card">
+                            <div class="course-header">
+                                <h3>Database Systems</h3>
+                                <span class="course-level">Level 300</span>
+                            </div>
+                            <div class="course-body">
+                                <p>Design and implementation of database systems, SQL, and database management.</p>
+                            </div>
+                            <div class="course-footer">
+                                <span class="course-credits">3 Credits</span>
+                                <span class="course-code">CS301</span>
+                            </div>
+                        </div>
+
+                        <div class="course-card">
+                            <div class="course-header">
+                                <h3>Web Development</h3>
+                                <span class="course-level">Level 200</span>
+                            </div>
+                            <div class="course-body">
+                                <p>Modern web development technologies, frameworks, and best practices.</p>
+                            </div>
+                            <div class="course-footer">
+                                <span class="course-credits">3 Credits</span>
+                                <span class="course-code">CS202</span>
+                            </div>
+                        </div>
+
+                        <div class="course-card">
+                            <div class="course-header">
+                                <h3>Computer Networks</h3>
+                                <span class="course-level">Level 300</span>
+                            </div>
+                            <div class="course-body">
+                                <p>Study of computer networks, protocols, and network security fundamentals.</p>
+                            </div>
+                            <div class="course-footer">
+                                <span class="course-credits">4 Credits</span>
+                                <span class="course-code">CS302</span>
+                            </div>
+                        </div>
+
+                        <div class="course-card">
+                            <div class="course-header">
+                                <h3>Software Engineering</h3>
+                                <span class="course-level">Level 400</span>
+                            </div>
+                            <div class="course-body">
+                                <p>Software development methodologies, project management, and quality assurance.</p>
+                            </div>
+                            <div class="course-footer">
+                                <span class="course-credits">3 Credits</span>
+                                <span class="course-code">CS401</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Elective Courses -->
+                <div class="course-category" id="elective">
+                    <div class="course-grid">
+                        <div class="course-card">
+                            <div class="course-header">
+                                <h3>Mobile App Development</h3>
+                                <span class="course-level">Elective</span>
+                            </div>
+                            <div class="course-body">
+                                <p>Development of mobile applications for iOS and Android platforms.</p>
+                            </div>
+                            <div class="course-footer">
+                                <span class="course-credits">3 Credits</span>
+                                <span class="course-code">CS401</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Postgraduate Courses -->
+                <div class="course-category" id="postgraduate">
+                    <div class="course-grid">
+                        <div class="course-card">
+                            <div class="course-header">
+                                <h3>Advanced Machine Learning</h3>
+                                <span class="course-level">MSc</span>
+                            </div>
+                            <div class="course-body">
+                                <p>Advanced topics in machine learning and artificial intelligence.</p>
+                            </div>
+                            <div class="course-footer">
+                                <span class="course-credits">4 Credits</span>
+                                <span class="course-code">CS601</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Research Courses -->
+                <div class="course-category" id="research">
+                    <div class="course-grid">
+                        <div class="course-card">
+                            <div class="course-header">
+                                <h3>Research Methods in CS</h3>
+                                <span class="course-level">PhD</span>
+                            </div>
+                            <div class="course-body">
+                                <p>Advanced research methodologies and techniques in computer science.</p>
+                            </div>
+                            <div class="course-footer">
+                                <span class="course-credits">4 Credits</span>
+                                <span class="course-code">CS701</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p>Computer Science Department</p>
+                <p>Faculty of Physical Sciences</p>
+                <p>University for Development Studies</p>
+                <p>Email: cssudsnyc@gmail.com</p>
+                <p>Phone: +233(0) 37 209 9482</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="courses.html">Courses</a></li>
+                    <li><a href="faculty.html">Faculty</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <div class="social-links">
+                    <a href="https://youtube.com/@CSS-UDS"><i class="fab fa-youtube"></i></a>
+                    <a href="https://x.com/@_CssUds"><i class="fab fa-twitter"></i></a>
+                    <a href="https://t.me/css_uds"><i class="fab fa-telegram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Computer Science Department, UDS. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="../scripts/main.js"></script>
+    <script>
+        // Course filtering functionality
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const courseCategories = document.querySelectorAll('.course-category');
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                // Add active class to clicked button
+                button.classList.add('active');
+                
+                const category = button.getAttribute('data-category');
+                
+                // Hide all categories
+                courseCategories.forEach(cat => cat.classList.remove('active'));
+                // Show selected category
+                document.getElementById(category).classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html> 

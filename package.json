@@ -1,0 +1,23 @@
+{
+  "name": "css-info-app",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mubashirsenpai/CSS-web-base-App.git"
+  },
+  "keywords": [
+    "Info",
+    "App"
+  ],
+  "author": "Group 4",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Mubashirsenpai/CSS-web-base-App/issues"
+  },
+  "homepage": "https://github.com/Mubashirsenpai/CSS-web-base-App#readme",
+  "description": ""
+}

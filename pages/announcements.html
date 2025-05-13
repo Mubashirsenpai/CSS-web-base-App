@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Announcements - Computer Science Department</title>
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .announcements-section {
+            padding: 6rem 5% 4rem;
+        }
+        
+        .announcements-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .announcement-filters {
+            margin: 2rem 0;
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .filter-btn {
+            padding: 0.5rem 1rem;
+            border: none;
+            background: #f0f0f0;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .filter-btn.active {
+            background: #1a237e;
+            color: white;
+        }
+        
+        .announcement-list {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+        
+        .announcement-card {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+        
+        .announcement-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .announcement-header {
+            padding: 1.5rem;
+            background: #1a237e;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .announcement-date {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        .announcement-body {
+            padding: 1.5rem;
+        }
+        
+        .announcement-footer {
+            padding: 1rem 1.5rem;
+            background: #f5f5f5;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .announcement-category {
+            padding: 0.25rem 0.5rem;
+            background: #e0e0e0;
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+        
+        .announcement-actions {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .action-btn {
+            padding: 0.5rem 1rem;
+            border: none;
+            background: #1a237e;
+            color: white;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .action-btn:hover {
+            background: #283593;
+        }
+
+        .announcement-section {
+            display: none;
+        }
+
+        .announcement-section.active {
+            display: block;
+        }
+
+        /* Calendar Modal Styles */
+        .calendar-modal .modal-content {
+            max-width: 600px;
+        }
+
+        .calendar-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .calendar-option {
+            padding: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            text-align: center;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .calendar-option:hover {
+            background: #f5f5f5;
+        }
+
+        .calendar-option i {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            color: #1a237e;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <h1>CS Department</h1>
+                <p>Faculty of Physical Sciences</p>
+            </div>
+            <ul class="nav-links">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="courses.html">Courses</a></li>
+                <li><a href="faculty.html">Faculty</a></li>
+                <li><a href="announcements.html" class="active">Announcements</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="burger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="announcements-section">
+            <div class="announcements-content">
+                <h1>Announcements</h1>
+                <p>Stay updated with the latest news and information from the Computer Science Department.</p>
+
+                <div class="announcement-filters">
+                    <button class="filter-btn active" data-category="academic">Academic</button>
+                    <button class="filter-btn" data-category="events">Events</button>
+                    <button class="filter-btn" data-category="research">Research</button>
+                    <button class="filter-btn" data-category="student-life">Student Life</button>
+                </div>
+
+                <!-- Academic Announcements -->
+                <div class="announcement-section active" id="academic">
+                    <div class="announcement-container">
+                        <div class="announcement-card">
+                            <div class="announcement-header">
+                                <h2>Registration for New Semester</h2>
+                                <span class="announcement-date">March 15, 2024</span>
+                            </div>
+                            <div class="announcement-body">
+                                <p>The registration for the upcoming semester will begin on April 1, 2024. All students are required to complete their registration process by April 15, 2024. Please ensure you have cleared all outstanding fees before registration.</p>
+                                <p>For more information, please visit the department office or check your student portal.</p>
+                            </div>
+                            <div class="announcement-footer">
+                                <span class="announcement-category">Academic</span>
+                                <div class="announcement-actions">
+                                    <button class="action-btn" onclick="showRegistrationForm()">Register Now</button>
+                                    <button class="action-btn" onclick="showGuidelines('registration')">Guidelines</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Events Announcements -->
+                <div class="announcement-section" id="events">
+                    <div class="announcement-container">
+                        <div class="announcement-card">
+                            <div class="announcement-header">
+                                <h2>Department Seminar Series</h2>
+                                <span class="announcement-date">March 10, 2024</span>
+                            </div>
+                            <div class="announcement-body">
+                                <p>Join us for our weekly seminar series featuring guest speakers from industry and academia. This week's topic: "The Future of Artificial Intelligence in Education" by Dr. Sarah Williams.</p>
+                                <p>Date: March 20, 2024<br>
+                                Time: 2:00 PM<br>
+                                Venue: CS Department Seminar Room</p>
+                            </div>
+                            <div class="announcement-footer">
+                                <span class="announcement-category">Events</span>
+                                <div class="announcement-actions">
+                                    <button class="action-btn" onclick="showRegistrationForm()">Register</button>
+                                    <button class="action-btn" onclick="showCalendarOptions()">Add to Calendar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Research Announcements -->
+                <div class="announcement-section" id="research">
+                    <div class="announcement-container">
+                        <div class="announcement-card">
+                            <div class="announcement-header">
+                                <h2>Research Grant Opportunities</h2>
+                                <span class="announcement-date">March 5, 2024</span>
+                            </div>
+                            <div class="announcement-body">
+                                <p>The department is pleased to announce several research grant opportunities for faculty and students. These grants are available for projects in the following areas:</p>
+                                <ul>
+                                    <li>Artificial Intelligence and Machine Learning</li>
+                                    <li>Cybersecurity and Network Systems</li>
+                                    <li>Software Engineering and Development</li>
+                                    <li>Data Science and Analytics</li>
+                                </ul>
+                                <p>Application deadline: April 30, 2024</p>
+                            </div>
+                            <div class="announcement-footer">
+                                <span class="announcement-category">Research</span>
+                                <div class="announcement-actions">
+                                    <button class="action-btn" onclick="showGrantForm()">Apply Now</button>
+                                    <button class="action-btn" onclick="showGuidelines('research')">Guidelines</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Student Life Announcements -->
+                <div class="announcement-section" id="student-life">
+                    <div class="announcement-container">
+                        <div class="announcement-card">
+                            <div class="announcement-header">
+                                <h2>Student Club Activities</h2>
+                                <span class="announcement-date">March 1, 2024</span>
+                            </div>
+                            <div class="announcement-body">
+                                <p>Join our vibrant student community through various clubs and activities:</p>
+                                <ul>
+                                    <li>Programming Club - Weekly coding challenges and hackathons</li>
+                                    <li>Tech Talks - Student-led presentations on emerging technologies</li>
+                                    <li>Sports and Recreation - Regular sports activities and tournaments</li>
+                                    <li>Community Service - Tech outreach programs in local schools</li>
+                                </ul>
+                            </div>
+                            <div class="announcement-footer">
+                                <span class="announcement-category">Student Life</span>
+                                <div class="announcement-actions">
+                                    <button class="action-btn" onclick="showRegistrationForm()">Join Club</button>
+                                    <button class="action-btn" onclick="showGuidelines('clubs')">Club Rules</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Registration Modal -->
+    <div class="modal" id="registrationModal">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <h2>Registration Form</h2>
+            <form id="registrationForm">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="studentId">Student ID</label>
+                    <input type="text" id="studentId" name="studentId" required>
+                </div>
+                <div class="form-group">
+                    <label for="level">Level</label>
+                    <select id="level" name="level" required>
+                        <option value="">Select Level</option>
+                        <option value="100">Level 100</option>
+                        <option value="200">Level 200</option>
+                        <option value="300">Level 300</option>
+                        <option value="400">Level 400</option>
+                    </select>
+                </div>
+                <button type="submit" class="form-submit">Submit Registration</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Guidelines Modal -->
+    <div class="modal" id="guidelinesModal">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <h2>Guidelines</h2>
+            <div id="guidelinesContent">
+                <!-- Content will be populated dynamically -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Calendar Modal -->
+    <div class="modal calendar-modal" id="calendarModal">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <h2>Add to Calendar</h2>
+            <p>Choose your preferred calendar application:</p>
+            <div class="calendar-options">
+                <div class="calendar-option" onclick="addToGoogleCalendar()">
+                    <i class="fab fa-google"></i>
+                    <p>Google Calendar</p>
+                </div>
+                <div class="calendar-option" onclick="addToOutlook()">
+                    <i class="fab fa-microsoft"></i>
+                    <p>Outlook</p>
+                </div>
+                <div class="calendar-option" onclick="addToAppleCalendar()">
+                    <i class="fab fa-apple"></i>
+                    <p>Apple Calendar</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Grant Application Modal -->
+    <div class="modal" id="grantModal">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <h2>Research Grant Application</h2>
+            <form id="grantForm">
+                <div class="form-group">
+                    <label for="applicantName">Full Name</label>
+                    <input type="text" id="applicantName" name="applicantName" required>
+                </div>
+                <div class="form-group">
+                    <label for="applicantEmail">Email</label>
+                    <input type="email" id="applicantEmail" name="applicantEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="projectTitle">Project Title</label>
+                    <input type="text" id="projectTitle" name="projectTitle" required>
+                </div>
+                <div class="form-group">
+                    <label for="projectArea">Research Area</label>
+                    <select id="projectArea" name="projectArea" required>
+                        <option value="">Select Area</option>
+                        <option value="ai">Artificial Intelligence and Machine Learning</option>
+                        <option value="security">Cybersecurity and Network Systems</option>
+                        <option value="software">Software Engineering and Development</option>
+                        <option value="data">Data Science and Analytics</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="projectDescription">Project Description</label>
+                    <textarea id="projectDescription" name="projectDescription" required></textarea>
+                </div>
+                <button type="submit" class="form-submit">Submit Application</button>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p>Computer Science Department</p>
+                <p>Faculty of Physical Sciences</p>
+                <p>University for Development Studies</p>
+                <p>Email: cssudsnyc@gmail.com</p>
+                <p>Phone: +233(0) 37 209 9482</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="courses.html">Courses</a></li>
+                    <li><a href="faculty.html">Faculty</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <div class="social-links">
+                    <a href="https://youtube.com/@CSS-UDS"><i class="fab fa-youtube"></i></a>
+                    <a href="https://x.com/@_CssUds"><i class="fab fa-twitter"></i></a>
+                    <a href="https://t.me/css_uds"><i class="fab fa-telegram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Computer Science Department, UDS. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="../scripts/main.js"></script>
+    <script>
+        // Announcement filtering functionality
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const announcementSections = document.querySelectorAll('.announcement-section');
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                // Add active class to clicked button
+                button.classList.add('active');
+                
+                const category = button.getAttribute('data-category');
+                
+                // Hide all sections
+                announcementSections.forEach(section => section.classList.remove('active'));
+                // Show selected section
+                document.getElementById(category).classList.add('active');
+            });
+        });
+
+        // Modal functionality
+        const modals = document.querySelectorAll('.modal');
+        const modalCloseButtons = document.querySelectorAll('.modal-close');
+
+        modalCloseButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                button.closest('.modal').classList.remove('active');
+            });
+        });
+
+        modals.forEach(modal => {
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    modal.classList.remove('active');
+                }
+            });
+        });
+
+        // Show registration form
+        function showRegistrationForm() {
+            document.getElementById('registrationModal').classList.add('active');
+        }
+
+        // Show grant application form
+        function showGrantForm() {
+            document.getElementById('grantModal').classList.add('active');
+        }
+
+        // Show guidelines
+        function showGuidelines(type) {
+            const guidelinesContent = document.getElementById('guidelinesContent');
+            let content = '';
+
+            switch(type) {
+                case 'registration':
+                    content = `
+                        <h3>Registration Guidelines</h3>
+                        <ul>
+                            <li>Ensure all fees are cleared before registration</li>
+                            <li>Have your student ID ready</li>
+                            <li>Complete all required courses for your level</li>
+                            <li>Meet with your academic advisor for course selection</li>
+                        </ul>
+                    `;
+                    break;
+                case 'research':
+                    content = `
+                        <h3>Research Grant Guidelines</h3>
+                        <ul>
+                            <li>Projects must align with department research areas</li>
+                            <li>Clear methodology and objectives required</li>
+                            <li>Budget justification needed</li>
+                            <li>Timeline for project completion</li>
+                        </ul>
+                    `;
+                    break;
+                case 'clubs':
+                    content = `
+                        <h3>Club Rules and Guidelines</h3>
+                        <ul>
+                            <li>Regular attendance required</li>
+                            <li>Active participation in club activities</li>
+                            <li>Maintain academic standing</li>
+                            <li>Follow code of conduct</li>
+                        </ul>
+                    `;
+                    break;
+            }
+
+            guidelinesContent.innerHTML = content;
+            document.getElementById('guidelinesModal').classList.add('active');
+        }
+
+        // Show calendar options
+        function showCalendarOptions() {
+            document.getElementById('calendarModal').classList.add('active');
+        }
+
+        // Calendar integration functions
+        function addToGoogleCalendar() {
+            // Add Google Calendar integration logic
+            alert('Adding to Google Calendar...');
+        }
+
+        function addToOutlook() {
+            // Add Outlook integration logic
+            alert('Adding to Outlook Calendar...');
+        }
+
+        function addToAppleCalendar() {
+            // Add Apple Calendar integration logic
+            alert('Adding to Apple Calendar...');
+        }
+
+        // Form submissions
+        document.getElementById('registrationForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Registration submitted successfully!');
+            document.getElementById('registrationModal').classList.remove('active');
+        });
+
+        document.getElementById('grantForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Grant application submitted successfully!');
+            document.getElementById('grantModal').classList.remove('active');
+        });
+    </script>
+</body>
+</html> 
